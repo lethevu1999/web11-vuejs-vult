@@ -1,0 +1,87 @@
+body{
+    margin: 0;
+    font-family: Roboto;
+}
+
+.dialog-delete-container{
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #75757575;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.dialog-delete{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    width: 350px;
+    height: 150px;
+    background-color: #fff;
+    padding: 24px;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.button-close{
+    background-image: url(../../assets/icons/ic_X_2.png);
+    background-size: contain;
+    position: absolute;
+    top: 8px;
+    right: 16px;
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+}
+
+.dialog-delete-top{
+    display: flex;
+    font-size: 20px;
+    height: 40px;
+    align-items: flex-start;
+    color: #424242;
+}
+
+.dialog-delete-center{
+    width: 100%;
+    font-size: 13px;
+    flex: 1;
+    color: #424242;
+}
+
+.dialog-delete-bottom{
+    display: flex;
+    justify-content: end;
+    align-items: flex-end;
+    height: 50px;
+    gap: 8px;
+}
+
+.dialog-delete-button{
+    height: 32px;
+    width: 80px;
+    font-size: 13px;
+    text-align: center;
+    line-height: 32px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.dialog-close{
+    border: 1px solid;
+    color: #424242;
+    border-color: #9E9E9E;
+    background-color: #fff;
+}
+
+.dialog-submit{
+    color: #fff;
+    background-color: #089740;
+    border: 1px solid;
+    border-color: #089740;
+}

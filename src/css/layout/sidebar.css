@@ -1,0 +1,105 @@
+.sidebar-header{
+    display: flex;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    align-items: center;
+    padding: 0px 12px;
+    box-sizing: border-box;
+    background-color: #041434;
+}
+
+.sidebar-header .icon{
+    height: 30px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 30px;
+}
+
+.sidebar-header .text{
+    margin-left: 16px;
+    font-size: 16px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    color: white;
+}
+
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    background-color: #041434;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    padding: 0px 0px 20px 0px;
+    
+}
+
+.navbar{
+    display: flex;
+    height: 100%;
+    align-items: center;
+    padding: 0px 12px;
+    box-sizing: border-box;
+    margin-top: 4px;
+}
+
+.navbar:hover{
+    background-color: #404F64;
+}
+
+.navbar:active{
+    border-left: 4px solid;
+    border-left-color: #409330;
+    background-color: #404F64;
+    color: #0DD469;
+    padding: 0 8px;
+}
+
+.navbar .icon{
+    height: 30px;
+    font-size: 16px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 30px;
+}
+
+.navbar .text{
+    margin-left: 16px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    color: white;
+}
+
+a{
+    text-decoration: none;
+    height: 44px;
+    margin-top: 4px;
+}
+
+.sidebar-header .icon{
+    background-image: url("../../assets/icons/ic_IconThietBi.svg")
+}
+
+.item1 .icon{
+    background-image: url("../../assets/icons/ic_TongQuan.svg")
+}
+
+.item2 .icon{
+    background-image: url("../../assets/icons/ic_ThietBi.svg")
+}
+
+.item3 .icon{
+    background-image: url("../../assets/icons/ic_MuonTra.svg")
+}
+
+.item4 .icon{
+    background-image: url("../../assets/icons/ic_BaoCao.svg")
+}
+
+.item5 .icon{
+    background-image: url("../../assets/icons/ic_HeThong.svg")
+}
+
+a :active{
+    color:  #409330;
+}
+
