@@ -204,9 +204,9 @@ export default {
                     // gọi api thêm dữ liệu:
                     axios.post("https://amis.manhnv.net/api/v1/Employees",this.newEmployee)
                         .then((res) => {
-                            alert("Thành công");
                             me.closeDialog();
                             me.$emit("loadData");
+                            me.$emit("onNotification");
                             console.log(res);
                         })
                         .catch((error) => {

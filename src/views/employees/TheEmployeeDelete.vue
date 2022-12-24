@@ -44,6 +44,7 @@ export default{
                 console.log(res);
                 me.$emit("loadData");
                 this.closeDialog();
+                me.$emit("onNotification");
             })
             .catch((error) => {
                 console.log(error);

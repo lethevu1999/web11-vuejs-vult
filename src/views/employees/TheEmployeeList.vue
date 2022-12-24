@@ -27,14 +27,14 @@
                 <td class="check">
                     <div class="check-box"></div>
                 </td>
-                <td class="employee-code">{{headingData.EmployeeCode }}</td>
+                <td class="employee-code">{{ headingData.EmployeeCode }}</td>
                 <td class="employee-name">{{ headingData.EmployeeName }}</td>
-                <td class="phone-number">{{headingData.PhoneNumber}}</td>
-                <td class="specialize">{{headingData.Group}}</td>
+                <td class="phone-number">{{ headingData.PhoneNumber }}</td>
+                <td class="specialize">{{ headingData.Group }}</td>
                 <td class="subject">{{ headingData.ManageBySubject }}</td>
-                <td class="room">{{headingData.ManageByDepartment}}</td>
-                <td class="training">{{headingData.Major}}</td>
-                <td class="working">{{headingData.Working}}</td>
+                <td class="room">{{ headingData.ManageByDepartment }}</td>
+                <td class="training">{{ headingData.Major }}</td>
+                <td class="working">{{ headingData.Working }}</td>
                 <td class="manager"></td>
             </tr>
             <tr class="data" v-for="(item, index) in employees" :key="index">
@@ -79,10 +79,13 @@
         <div class="paging-text-2">(56 giáo viên)</div>
     </div>
     <TheEmployeeDetail v-if="displayDialogUpdate" :employeeId="employeeIdSelected" @loadData="loadData"
-        @onClose="closeDialogUpdate"></TheEmployeeDetail>
-    <TheEmployeeDelete v-if="displayDialogDelete" :employeeId="employeeIdDelete" @loadData="loadData" @onClose="closeDialogDelete"></TheEmployeeDelete>
-    <TheEmployeeInsert v-if="displayDialogInsert"  @loadData="loadData" @onClose="closeDialogInsert"></TheEmployeeInsert>
+        @onClose="closeDialogUpdate" @onNotification="openNotification"></TheEmployeeDetail>
+    <TheEmployeeDelete v-if="displayDialogDelete" :employeeId="employeeIdDelete" @loadData="loadData"
+        @onClose="closeDialogDelete" @onNotification="openNotification"></TheEmployeeDelete>
+    <TheEmployeeInsert v-if="displayDialogInsert" @loadData="loadData" @onClose="closeDialogInsert"
+        @onNotification="openNotification"></TheEmployeeInsert>
     <TheLoading v-if="displayLoading"></TheLoading>
+    <TheNotification v-if="displayNotification"></TheNotification>
 </template>
   
 <script>
@@ -91,6 +94,7 @@ import TheEmployeeInsert from './TheEmployeeInsert.vue';
 import TheEmployeeDetail from './TheEmployeeDetail.vue';
 import TheEmployeeDelete from './TheEmployeeDelete.vue';
 import TheLoading from './TheLoading.vue';
+import TheNotification from './TheNotification.vue';
 import TheResource from '../../js/TheResource.js';
 import TheEnum from '../../js/TheEnum.js';
 
@@ -106,7 +110,8 @@ export default {
         TheEmployeeInsert,
         TheEmployeeDetail,
         TheEmployeeDelete,
-        TheLoading
+        TheLoading,
+        TheNotification
     },
 
     methods: {
@@ -133,7 +138,7 @@ export default {
          * Hàm mở dialog thêm khi click vào nút Thêm
          * Author: LTVu (24/12/2022)
          */
-         openDialogInsert() {
+        openDialogInsert() {
             //chuyển display thành true để hiện trong v-if
             try {
                 this.displayDialogInsert = true;
@@ -209,8 +214,7 @@ export default {
                 this.displayDialogDelete = true;
                 this.employeeIdDelete = item.EmployeeId;
             }
-            catch(error)
-            {
+            catch (error) {
                 console.log(error);
             }
         },
@@ -228,6 +232,24 @@ export default {
             }
         },
 
+        /**
+         * Hàm hiển thị thay đổi dữ liêu thành công
+         * Author: LTVu (24/12/2022)
+         */
+
+        openNotification() {
+            try {
+                this.displayNotification = true;
+                setTimeout(() => {
+                    this.displayNotification = false;
+                }, 2000);
+            }
+            catch (error) {
+                console.log(error)
+            }
+        }
+
+
     },
     data() {
         return {
@@ -236,10 +258,11 @@ export default {
             displayDialogUpdate: false,
             employeeIdSelected: {},
             displayDialogDelete: false,
-            employeeIdDelete:{},
+            employeeIdDelete: {},
             headingData: TheResource.HeadingData,
             mode: 1,
-            displayLoading: false
+            displayLoading: false,
+            displayNotification: false
         }
     },
 }

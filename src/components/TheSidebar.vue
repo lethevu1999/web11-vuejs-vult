@@ -28,7 +28,7 @@
             </div>
         </router-link>
         
-        <router-link to="/report">
+        <router-link to="/">
             <div class="navbar item5">
                 <div class="icon"></div>
                 <div class="text">Hệ thống</div>
